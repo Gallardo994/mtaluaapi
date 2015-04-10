@@ -1,0 +1,31 @@
+<meta>
+  <info name="API Library" author="Gallardo" />
+  
+  <!-- Main code -->
+  <script src="global.lua" type="client" />
+  <script src="global.lua" />
+  <export function="getExportClass" type="client" />
+  <export function="getExportClass"/>
+  <export function="getExportGlobal" type="client" />
+  <export function="getExportGlobal"/>
+  
+  
+  <!-- Common: serverside & clientside -->
+  <script src="global/logic.lua" type="client" />
+  <script src="global/logic.lua" />
+  
+  <script src="global/math.lua" type="client" />
+  <script src="global/math.lua" />
+  
+  <script src="global/string.lua" type="client" />
+  <script src="global/string.lua" />
+  
+  
+  <!-- Clientside only -->
+  
+  
+  <!-- Serverside only -->
+  
+  
+  
+</meta>
