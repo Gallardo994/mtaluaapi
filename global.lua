@@ -3,8 +3,6 @@
 -- Gallardo's multicode library. Licenced under GPL
 -- 
 -- The resource distributes "AS IS": no warranty is applied 
--- 
--- NOTE: Version 1.0
 --
 --
 
