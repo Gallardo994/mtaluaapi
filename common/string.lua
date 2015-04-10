@@ -12,3 +12,14 @@ function GLOBAL[category].removeUTF(str)
   end
   return asciiStr
 end
+
+-- Generates random string of a specified length
+function GLOBAL[category].generate(len)
+  local allowed = {{48,57},{65,90},{97, 22 }}
+  local str = ""
+  for i = 1, len do
+    local charlist = allowed[math.random(1,3)]
+    str = str..string.char(math.random(charlist[1],charlist[2]))
+  end
+  return str
+end
