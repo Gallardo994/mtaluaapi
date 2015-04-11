@@ -50,3 +50,46 @@ function GLOBAL[category].similarity(fx, fy)
   end
   return (ssnc/((n+m)^2))^(1/2)
 end
+
+-- Shrinks text like "sssssssssdddddddffff" to "sdf"
+function GLOBAL[category].norepeat(text)
+  local vals = { }
+  local prevl = nil
+  for v in text:gmatch "." do
+    if not (v == prevl) then
+      table.insert(vals,v)
+    end
+    prevl = v
+  end
+  return table.concat(vals,"")
+end
+
+-- Returns a table of unique symbols in a string
+function GLOBAL[category].uniqueSymbols(text)
+  local vals = { }
+  local used = { }
+  for v in text:gmatch "." do
+    local v = string.lower(v)
+    if not used[v] and not (v == " ") then
+      table.insert(vals,v)
+      used[v] = true
+    end
+  end
+  return vals
+end
+
+-- Gets caps lock percentage from a string
+function GLOBAL[category].capsPercentage(text)
+  local up = 0
+  local down = 0
+  local text = string.gsub(text," ","")
+  for v in text:gmatch "." do
+    local d = string.lower(v)
+    if v == string.lower(v) then
+      down = down + 1
+    elseif v == string.upper(v) then
+      up = up + 1
+    end
+  end
+  return up/(down+up)
+end
