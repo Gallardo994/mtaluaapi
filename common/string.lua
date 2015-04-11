@@ -15,9 +15,9 @@ end
 
 -- Generates random string of a specified length
 function GLOBAL[category].generate(len)
-  local allowed = {{48,57},{65,90},{97, 22 }}
+  local allowed = {{48,57},{65,90},{97,22}}
   local str = ""
-  for i = 1, len do
+  for i = 1,len do
     local charlist = allowed[math.random(1,3)]
     str = str..string.char(math.random(charlist[1],charlist[2]))
   end
@@ -33,16 +33,16 @@ function GLOBAL[category].similarity(fx, fy)
     fx, fy = fy, fx
     n, m = m, n
   end
-  for i = n, 1, -1 do
+  for i = n,1,-1 do
     if i <= string.len(fx) then
-      for j = 1, n-i+1, 1 do
-	local pattern = string.sub(fx, j, j+i-1)
+      for j = 1,n-i+1,1 do
+	local pattern = string.sub(fx,j,j+i-1)
 	if string.len(pattern) == 0 then break end
-	local found_at = string.find(fy, pattern)
-	if found_at ~= nil then
+	local found_at = string.find(fy,pattern)
+	if not (found_at == nil) then
 	  ssnc = ssnc + (2*i)^2
-	  fx = string.sub(fx, 0, j-1) .. string.sub(fx, j+i)
-	  fy = string.sub(fy, 0, found_at-1) .. string.sub(fy, found_at+i)
+	  fx = string.sub(fx,0,j-1)..string.sub(fx, j+i)
+	  fy = string.sub(fy,0,found_at-1)..string.sub(fy,found_at+i)
 	  break
 	end
       end
