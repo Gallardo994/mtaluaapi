@@ -23,3 +23,30 @@ function GLOBAL[category].generate(len)
   end
   return str
 end
+
+-- Compares 2 strings and returns similarity ratio (0 to 1, float)
+function GLOBAL[category].similarity(fx, fy)
+  local n = string.len(fx)
+  local m = string.len(fy)
+  local ssnc = 0
+  if n > m then
+    fx, fy = fy, fx
+    n, m = m, n
+  end
+  for i = n, 1, -1 do
+    if i <= string.len(fx) then
+      for j = 1, n-i+1, 1 do
+	local pattern = string.sub(fx, j, j+i-1)
+	if string.len(pattern) == 0 then break end
+	local found_at = string.find(fy, pattern)
+	if found_at ~= nil then
+	  ssnc = ssnc + (2*i)^2
+	  fx = string.sub(fx, 0, j-1) .. string.sub(fx, j+i)
+	  fy = string.sub(fy, 0, found_at-1) .. string.sub(fy, found_at+i)
+	  break
+	end
+      end
+    end
+  end
+  return (ssnc/((n+m)^2))^(1/2)
+end
