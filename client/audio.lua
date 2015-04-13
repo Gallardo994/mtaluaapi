@@ -19,8 +19,6 @@ function GLOBAL[category].playAmbience(mode,overlay)
   end
   GLOBAL[category].currentaudio = playSound(file)
 end
-addEvent("playAmbience",true)
-addEventHandler("playAmbience",ROOTELEMENT,playAmbience)
 
 function GLOBAL[category].stopAmbience()
   if isElement(GLOBAL[category].currentaudio) then
