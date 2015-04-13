@@ -1,8 +1,8 @@
 local category = "math"
-registerCategory(category)
+local category = registerCategory(category)
 
 -- Transforms rgb to hsv model
-function GLOBAL[category].rgb2hsv(r,g,b)
+function category.rgb2hsv(r,g,b)
   local r,g,b = r/255, g/255, b/255
   local max,min = math.max(r,g,b),math.min(r,g,b)
   local h, s 
@@ -23,7 +23,7 @@ function GLOBAL[category].rgb2hsv(r,g,b)
 end
 
 -- Transforms hsv to rgb model
-function GLOBAL[category].hsv2rgb(h,s,v)
+function category.hsv2rgb(h,s,v)
   local r, g, b
   local i = math.floor(h * 6)
   local f = h * 6 - i
@@ -48,7 +48,7 @@ function GLOBAL[category].hsv2rgb(h,s,v)
 end
 
 -- Transforms rgb to hex model
-function GLOBAL[category].rgb2hex(r,g,b,a)
+function category.rgb2hex(r,g,b,a)
   if a then
     return string.format("#%.2X%.2X%.2X%.2X",r,g,b,a)
   else
@@ -57,22 +57,22 @@ function GLOBAL[category].rgb2hex(r,g,b,a)
 end
 
 -- Transforms hex to rgb model
-function GLOBAL[category].hex2rgb(hex)
+function category.hex2rgb(hex)
   local hex = hex:gsub("#","")
   return tonumber("0x"..hex:sub(1,2)),tonumber("0x"..hex:sub(3,4)),tonumber("0x"..hex:sub(5,6))
 end
 
 -- Does math.ceil or math.floor depending on the number
-function GLOBAL[category].round(number)
+function category.round(number)
   return math.ceil(number-0.5)
 end
 
 -- Gets percent of a number
-function GLOBAL[category].percent(number,maxvalue)
+function category.percent(number,maxvalue)
   return number/maxvalue
 end
 
 -- Returns 2 values representing a part of their sum
-function GLOBAL[category].relate(number,number2)
+function category.relate(number,number2)
   return number/(number+number2),number2/(number+number2)
 end

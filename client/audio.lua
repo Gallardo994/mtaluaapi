@@ -1,27 +1,27 @@
 local category = "audio"
-registerCategory(category)
+local category = registerCategory(category)
 
-GLOBAL[category].filepath = "client/sfx"
-GLOBAL[category].audiofiles = {
+category.filepath = "client/sfx"
+category.audiofiles = {
   error = "error.ogg",
   notification = "notification.ogg",
   ring = "ring.ogg",
   success = "success.ogg",
   warning = "warning.ogg",
 }
-GLOBAL[category].currentaudio = false
+category.currentaudio = false
 
-function GLOBAL[category].playAmbience(mode,overlay)
-  local file = GLOBAL[category].filepath.."/"..tostring(GLOBAL[category].audiofiles[mode])
+function category.playAmbience(mode,overlay)
+  local file = category.filepath.."/"..tostring(category.audiofiles[mode])
   if not fileExists(file) then return end
   if not overlay then
     stopAmbience()
   end
-  GLOBAL[category].currentaudio = playSound(file)
+  category.currentaudio = playSound(file)
 end
 
-function GLOBAL[category].stopAmbience()
-  if isElement(GLOBAL[category].currentaudio) then
-    destroyElement(GLOBAL[category].currentaudio)
+function category.stopAmbience()
+  if isElement(category.currentaudio) then
+    destroyElement(category.currentaudio)
   end
 end

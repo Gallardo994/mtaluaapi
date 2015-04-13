@@ -29,4 +29,5 @@ end
 function registerCategory(category)
   if GLOBAL[category] then return end
   GLOBAL[category] = { }
+  return GLOBAL[category]
 end

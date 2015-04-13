@@ -1,8 +1,8 @@
 local category = "string"
-registerCategory(category)
+local category = registerCategory(category)
 
 -- Removes special symbols from strings
-function GLOBAL[category].removeUTF(str)
+function category.removeUTF(str)
   local asciiStr = ""
   for i=1,utfLen (str) do
     local c = utfSub(str,i,i)
@@ -14,7 +14,7 @@ function GLOBAL[category].removeUTF(str)
 end
 
 -- Generates random string of a specified length
-function GLOBAL[category].generate(len)
+function category.generate(len)
   local allowed = {{48,57},{65,90},{97,22}}
   local str = ""
   for i = 1,len do
@@ -25,7 +25,7 @@ function GLOBAL[category].generate(len)
 end
 
 -- Compares 2 strings and returns similarity ratio (0 to 1, float)
-function GLOBAL[category].similarity(fx, fy)
+function category.similarity(fx, fy)
   local n = string.len(fx)
   local m = string.len(fy)
   local ssnc = 0
@@ -52,7 +52,7 @@ function GLOBAL[category].similarity(fx, fy)
 end
 
 -- Shrinks text like "sssssssssdddddddffff" to "sdf"
-function GLOBAL[category].norepeat(text)
+function category.norepeat(text)
   local vals = { }
   local prevl = nil
   for v in text:gmatch "." do
@@ -65,7 +65,7 @@ function GLOBAL[category].norepeat(text)
 end
 
 -- Returns a table of unique symbols in a string
-function GLOBAL[category].uniqueSymbols(text)
+function category.uniqueSymbols(text)
   local vals = { }
   local used = { }
   for v in text:gmatch "." do
@@ -79,7 +79,7 @@ function GLOBAL[category].uniqueSymbols(text)
 end
 
 -- Gets caps lock percentage from a string
-function GLOBAL[category].capsPercentage(text)
+function category.capsPercentage(text)
   local up = 0
   local down = 0
   local text = string.gsub(text," ","")
