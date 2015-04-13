@@ -27,7 +27,7 @@ end
 
 -- This function should be used in order to make a category in GLOBAL class
 function registerCategory(category)
-  if GLOBAL[category] then return end
+  if GLOBAL[category] then return GLOBAL[category] end
   GLOBAL[category] = { }
   return GLOBAL[category]
 end
