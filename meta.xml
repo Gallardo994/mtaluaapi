@@ -22,7 +22,11 @@
   
   
   <!-- Clientside only -->
-  
+  <file src="client/sfx/error.ogg" />
+  <file src="client/sfx/notification.ogg" />
+  <file src="client/sfx/ring.ogg" />
+  <file src="client/sfx/success.ogg" />
+  <file src="client/sfx/warning.ogg" />
   
   <!-- Serverside only -->
   
