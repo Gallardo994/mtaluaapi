@@ -11,14 +11,14 @@
   
   
   <!-- Common: serverside & clientside -->
-  <script src="global/logic.lua" type="client" />
-  <script src="global/logic.lua" />
+  <script src="common/logic.lua" type="client" />
+  <script src="common/logic.lua" />
   
-  <script src="global/math.lua" type="client" />
-  <script src="global/math.lua" />
+  <script src="common/math.lua" type="client" />
+  <script src="common/math.lua" />
   
-  <script src="global/string.lua" type="client" />
-  <script src="global/string.lua" />
+  <script src="common/string.lua" type="client" />
+  <script src="common/string.lua" />
   
   
   <!-- Clientside only -->
